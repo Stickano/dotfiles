@@ -1,0 +1,95 @@
+! Interpret data as UTF-8
+XTerm*locale: true
+
+! Alt-key behavior
+XTerm*metaSendsEscape: true
+
+! Mouse selection to primary
+XTerm*selectToClipboard: on
+
+! # Key Controls
+! 1) Scroll with Shift-Arrows
+! 2) Insert copied text to primary
+! 3) And secure keyboard with Ctrl-Alt-S
+XTerm*VT100.translations: #override \
+        Shift <Key>Up: scroll-back(1,line) \n\
+        Shift <Key>Down: scroll-forw(1,line) \n\
+	Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n
+	Ctrl Shift <Key>C: copy-selection(CLIPBOARD)
+        Ctrl Alt <Key>S: secure() \n\
+
+
+! Blink cursor
+XTerm*cursorBlink: true
+
+! Open links with Shift-key
+*VT100*translations: #override Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
+
+! Border for Window
+xterm*borderWidth: 1
+xterm*BorderColor: #f3f4f5
+
+! Padding
+xterm*internalBorder:5
+
+! Font
+xterm*faceName: EnvyCodeR:size=14:antialias=true
+! XTerm*scaleHeight: 1.5
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.hinting:    1
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
+
+
+! Disable Xterms fullscreen feature
+XTerm*fullscreen: never
+
+! ROFI colors
+rofi.color-enabled:                  true
+rofi.color-normal:                   argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
+rofi.color-urgent:                   argb:00000000, #f99, argb:11FFFFFF, #f99,#333
+rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#333
+rofi.color-window:                   argb:ee333333, #1aa,#1aa
+rofi.separator-style:                dash
+
+! Xterm color scheme 
+! special
+*.foreground:   #c7ccd1
+*.background:   #1c2023
+*.cursorColor:  #c7ccd1
+
+! black
+*.color0:       #1c2023
+*.color8:       #747c84
+
+! red
+*.color1:       #c7ae95
+*.color9:       #c7ae95
+
+! green
+*.color2:       #95c7ae
+*.color10:      #95c7ae
+
+! yellow
+*.color3:       #aec795
+*.color11:      #aec795
+
+! blue
+*.color4:       #ae95c7
+*.color12:      #ae95c7
+
+! magenta
+*.color5:       #c795ae
+*.color13:      #c795ae
+
+! cyan
+*.color6:       #95aec7
+*.color14:      #95aec7
+
+! white
+*.color7:       #c7ccd1
+*.color15:      #f3f4f5
+

@@ -1,0 +1,31 @@
+# General system
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -ll --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias grep='grep --color=tty -d skip'	  # Color my grep!
+alias cp="cp -i"                          # confirm before overwriting something
+alias free='free -m'                      # show sizes in MB
+alias top='htop'			  # Good old top
+alias cd..="cd .."			  # Forgot the space? Ah well
+alias mkdir="mkdir -pv"			  # Create parent folders too
+alias df="df -Tha --total"		  # Human readable and total amount
+alias wget="wget -c"			  # Did the download break? No worries 
+alias pdf=jfbview			  # PDF reader
+
+# List of keks 
+alias wtf='dmesg'
+alias onoz='cat /var/log/errors.log'
+alias icanhas='mkdir'
+alias donotwant='rm'
+alias dowant='cp'
+alias gtfo='mv'
+alias hai='cd'
+alias plz='pwd'
+alias nomnom='killall'
+alias cya='reboot'
+alias kkthxbye='halt'
+
+# Kek git
+alias such=git
+alias very=git
+alias wow='git status'

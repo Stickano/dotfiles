@@ -1,0 +1,78 @@
+# Extract
+# Use with ex filename
+ex ()
+{
+  if [ -f $1 ] ; then
+	case $1 in
+	  *.tar.bz2)   tar xjf $1   ;;
+	  *.tar.gz)    tar xzf $1   ;;
+	  *.bz2)       bunzip2 $1   ;;
+	  *.rar)       unrar x $1     ;;
+	  *.gz)        gunzip $1    ;;
+	  *.tar)       tar xf $1    ;;
+	  *.tbz2)      tar xjf $1   ;;
+	  *.tgz)       tar xzf $1   ;;
+	  *.zip)       unzip $1     ;;
+	  *.Z)         uncompress $1;;
+	  *.7z)        7z x $1      ;;
+	  *)           echo "'$1' cannot be extracted via ex()" ;;
+	esac
+  else
+	echo "'$1' is not a valid file"
+  fi
+}
+
+
+# Copy and go to dir
+# Use with cpg /path/to/file /new/path
+cpg (){
+  if [ -d "$2" ];then
+	cp $1 $2 && cd $2
+  else
+	cp $1 $2
+  fi
+}
+
+
+# Move and go to dir
+# Use with mvg /path/to/file /new/path
+mvg (){
+  if [ -d "$2" ];then
+	mv $1 $2 && cd $2
+  else
+	mv $1 $2
+  fi
+}
+
+
+# RSS reader
+# Use with feed
+feed() {
+	# The characters "ç, £, §" are used as metacharacters. They should not be encountered in a feed...
+	echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news//// | sed -e ':a;N;$!ba;s/\n/ /g') | \
+		sed -e 's/&gt;/ç/g' |
+		sed -e 's/&lt;\/aç/£/g' |
+		sed -e 's/href\=\"/§/g' |
+		sed -e 's/<title>/\\n\\n\\n   :: \\e[01;31m/g' -e 's/<\/title>/\\e[00m ::\\n/g' |
+		sed -e 's/<link>/ [ \\e[01;36m/g' -e 's/<\/link>/\\e[00m ]/g' |
+		sed -e 's/<description>/\\n\\n\\e[00;37m/g' -e 's/<\/description>/\\e[00m\\n\\n/g' |
+		sed -e 's/&lt;pç/\n/g' |
+		sed -e 's/&lt;bç\|&lt;strongç/\\e[01;30m/g' -e 's/&lt;\/bç\|&lt;\/strongç/\\e[00;37m/g' |
+		sed -e 's/&lt;a[^§]*§\([^\"]*\)\"[^ç]*ç\([^£]*\)[^£]*£/\\e[01;32m\2\\e[00;37m \\e[01;34m[ \\e[01;35m\1\\e[00;37m\\e[01;34m ]\\e[00;37m/g' |
+		sed -e 's/&lt;liç/\n \\e[01;34m*\\e[00;37m /g' |
+		sed -e 's/<[^>]*>/ /g' |
+		sed -e 's/&lt;[^ç]*ç//g' |
+		sed -e 's/[ç£§]//g')\n\n"
+}
+
+
+# Disable monitor blank for 2 hours
+# Use with blank
+blank () {
+    DUR="$(xset q | grep Standby | cut -d' ' -f4)"
+    xset s off
+    case $DUR in
+    7200) xset dpms 600 600 600;notify-send "Display" "Screen blank set to 10 mins.";;
+    *) xset dpms 7200 7200 7200;notify-send "Display" "Screen blank set to 2 hours.";;
+    esac
+}   

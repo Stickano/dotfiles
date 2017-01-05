@@ -1,0 +1,8 @@
+# Disable welcome message
+startup_message off
+
+# Statusbar
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+
+# Scrollbar
+termcapinfo xterm* ti@:te@

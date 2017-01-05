@@ -1,0 +1,52 @@
+#!/bin/sh
+
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
+sysresources=/etc/X11/xinit/.Xresources
+sysmodmap=/etc/X11/xinit/.Xmodmap
+
+# merge in defaults and keymaps
+if [ -f $sysresources ]; then
+    xrdb -merge $sysresources
+fi
+
+if [ -f $sysmodmap ]; then
+    xmodmap $sysmodmap
+fi
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
+
+if [ -f "$usermodmap" ]; then
+    xmodmap "$usermodmap"
+fi
+
+# start some nice programs
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
+# Wallpaper manager
+~/dotfiles/scripts/background &
+# Composite Manager
+compton -b --config ~/dotfiles/.compton &
+# Notifications
+dunst &
+# Keyboard layout
+setxkbmap dk &
+# Set initial monitor backlight
+xbacklight -set 50% &
+# Monitor blanking/ 10m
+xset s 600 &
+# Multimedia keys binding
+xbindkeys &
+# Screen locker
+xss-lock -- ~/dotfiles/.config/i3/lock.sh &
+# Touchpad Gestures
+touchegg &
+# RUN! You beautiful bastard!
+exec i3

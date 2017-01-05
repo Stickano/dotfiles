@@ -1,0 +1,22 @@
+# Toggle mute
+"pavolume mutetoggle"
+	XF86AudioMute
+
+# Volume Up
+"pavolume volup"
+	XF86AudioRaiseVolume
+
+# Volume Down
+"pavolume voldown"
+	XF86AudioLowerVolume
+
+# Kbd backlight Up
+"asus-kbd-backlight up"
+	XF86KbdBrightnessUp
+
+# Kbd backlight Down
+"asus-kbd-backlight down"
+	XF86KbdBrightnessDown
+
+"~/dotfiles/scripts/toggle_touchpad.sh"
+	XF86TouchpadToggle
