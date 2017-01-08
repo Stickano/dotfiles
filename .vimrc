@@ -1,123 +1,90 @@
-" Pathogen (plugin manager) -----------------------------------------------------------------
+" Use Vim settings rather than Vi
+set nocompatible
+
+" Plugin Settings
+" {{{
+" Pathogen Plugin Manager
 execute pathogen#infect()
-syntax on
-filetype plugin indent on
 
+" Grundo (undo) tree 
+nnoremap <F5> :GundoToggle<CR>	
 
-" Mouse Settings ----------------------------------------------------------------------------
-" Enable Mouse
-set mouse=a
+" Open Nerd Three Ctrl+n (plugin)
+map <C-n> :NERDTreeToggle<CR>	
 
-" Hide the mouse when typing
-set mousehide  
+" Airline Bar
+set laststatus=2
+" }}}
 
+" General Setting
+" {{{
+set whichwrap=b,s,<,>,[,]		" Move next/prev line  
+set history=500					" History
+set autoread					" Autoread when file is changed from outsite
+set wildmenu					" Wildmenu 
+set ffs=unix,dos,mac			" Set Unix as standard file type
+syntax on						" Syntax Highlighting
+filetype plugin indent on		" Allow for file-handling
+let mapleader=","				" Change <leader>
+set modelines=1					" Check for modeline
 
-" Navigation Settings -----------------------------------------------------------------------
-" Next/Previous line when using arrow-keys at end/start line
-set whichwrap=b,s,<,>,[,]
-
-
-" Spell Checking ----------------------------------------------------------------------------
-" Spellcheck languages
-set spelllang=en,da
-
-
-" Cursor Settings ---------------------------------------------------------------------------
 " Save Cursor Position
 augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
+" }}}
 
-" Highlight cursorline
-set cursorline
+" Editor Behaviour
+"{{{
+set mouse=a						" Enable Mouse
+set tabstop=4					" Replace tab with 4 spaces
+set softtabstop=4				" Backspace to behave like it's removing tab
+set autoindent					" Auto indent
+set smartindent					" Smart indent
+set backspace=indent,eol,start	" Backspace over everything 
+set lbr							" Line break each 500 character
+set tw=500
+set wrap						" Word Wrap
+set formatoptions+=1			" Always wrap before 1-letter words
+set background=dark				" Dark Background
+set number						" Line number
+set showmatch					" Show matching brackets
+set cursorline					" Highlight cursorline
+set copyindent					" Copy previous autoindenting
+set smarttab					" Tab at beginning according to shiftwidth
+set scrolloff=4					" Keep 4 lines when scrolling
+set clipboard=unnamed			" Primary as default clipboard
+set lazyredraw					" Only redraw when needed
+set foldmethod=marker			" Fold on markers
+set foldlevel=0					" Fold by default
+set selectmode=key				" Mark with Shift+move
+set keymodel=startsel
+set incsearch					" Instant word search
+set hlsearch					" Highlight search-results
+set wrapscan					" Continue search from top when hitting bottom
+set ignorecase					" Ignore case when searching
+set spelllang=en,da				" Spellcheck languages
+" }}}
 
-" Always show current position 
-set ruler
-
-
-" Search Settings ---------------------------------------------------------------------------
-" Instant word search
-set incsearch
-set ignorecase
-
-" Highlight search-results
-set hlsearch
-
-" Continue search from top when hitting bottom
-set wrapscan
-
-
-" General Settings --------------------------------------------------------------------------
-" Indent spaces
-set shiftwidth=4
-
-" Smart indent
-"set autoindent smartindent 
-
-" History
-set history=500
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" Autoread when file is changed from outsite
-set autoread
-
-" Wildmenu (auto complete in command) 
-set wildmenu
-
-" Command bar height
-set cmdheight=2
-
-" Backspace behaviour
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Show matching brackets
-set showmatch
-
-" Set Unix as standard file type
-set ffs=unix,dos,mac
-
-" Change <Leader> to 
-let mapleader = ","
-
-
-" Theming -----------------------------------------------------------------------------------
-" Dark Background
-set background=dark
-
-
-" Key mappings ------------------------------------------------------------------------------
-" Grundo (undo) tree
-nnoremap <F5> :GundoToggle<CR>
-
-" Forgot sudo?
+" Additional Settings
+" {{{
+" Easy way to sudo-save
 cmap w!! w !sudo tee % >/dev/null
 
-" Ctrl z, c & b 
+" Ctrl z, c, x & v (I'm a sucker for those ez mode bindings!)
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
-imap <C-z> <Esc>ui
+imap <C-z> <Esc>pi
 
-" Shift+Arrow Selection
-nmap <S-Up> V<Up>
-nmap <S-Down> V<Down>
-nmap <S-Left> v<Left>
-nmap <S-Right> v<Right>
-vmap <S-Up> <Up>
-vmap <S-Down> <Down>
-vmap <S-Left> <Left>
-vmap <S-Right> <Right>
-imap <S-Up> <Esc>V<Up>
-imap <S-Down> <Esc>V<Down>
-imap <S-Left> <Esc>v<Left>
-imap <S-Right> <Esc>v<Right>
+" Clear Search Highlights
+nnoremap <leader><space> :nohlsearch<CR>
 
-" Ctrl+Backspace delete previous word
-noremap! <C-BS> <C-w>
-noremap! <C-h> <C-w>
+" Open/close folds with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0

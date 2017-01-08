@@ -5,11 +5,11 @@ HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 setopt autocd extendedglob
-bindkey -e
+bindkey -v
 
 
 # # # # # # # # # # # # # # #
-## Auto Completion
+# Auto Completion
 #
 # Enable auto-complete
 autoload -Uz compinit
@@ -55,9 +55,9 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nano'
+   export EDITOR='vim'
 else
-   export EDITOR='nano'
+   export EDITOR='vim'
 fi
 
 # Export SSH Path
