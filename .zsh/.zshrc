@@ -1,94 +1,56 @@
 # Sourced upon interactive shell.
 # Shell configurations.
 
+## General Settings 
 HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
-setopt autocd extendedglob
-bindkey -v
+bindkey -v							# Vi
+ttyctl -f							# Resets terminal when necessary
+HIST_STAMPS="dd.mm.yyyy"			# TimeDate output
+export SSH_KEY_PATH="~/.ssh/rsa_id"	# Export SSH path
 
+## Options 
+setopt HIST_IGNORE_ALL_DUPS			# No duplicate entries in history
+setopt AUTO_CD						# auto cd when excluded
+setopt EXTENDED_GLOB				# Used by many of the extended features
+setopt PROMPT_SP					# Preserves the lines above when completion kicks in
 
-# # # # # # # # # # # # # # #
-# Auto Completion
-#
-# Enable auto-complete
-autoload -Uz compinit
-compinit
-setopt COMPLETE_ALIASES
+## Source Files 
+source ~/dotfiles/.aliases
+source ~/dotfiles/.functions
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# Double <tab> for completion menu
-zstyle ':completion:*' menu select
-
-# Automaticly refresh $PATH 
-zstyle ':completion:*' rehash true
-
-# Red dots on wait-for-completion
-COMPLETION_WAITING_DOTS="true"
-
-# Case Sensitive
-CASE_SENSITIVE="true"
-
-
-# # # # # # # # # # # # # # #
-# Theming
-# 
-# Enable theming
-autoload -Uz promptinit
-promptinit
-
-
-# # # # # # # # # # # # # # #
-# Other Settings
-#
-# Reset terminal if application crashes abnormally
-ttyctl -f
-
-# Search with arrow keys
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+## Historu search with arrow keys 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
-# Time/Date output
-HIST_STAMPS="dd.mm.yyyy"
-
-# Preferred editor for local and remote sessions
+## Preferred Editor 
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
    export EDITOR='vim'
 fi
 
-# Export SSH Path
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+## Auto Completion
+setopt COMPLETE_ALIASES					# Enable auto-complete
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select		# Double <tab> for completion menu
+zstyle ':completion:*' rehash true		# Automaticly refresh $PATH 
+COMPLETION_WAITING_DOTS="true"			# Red dots on wait-for-completion
+CASE_SENSITIVE="true"					# Case Sensitive
 
+## Theming
+autoload -Uz promptinit					# Enable theming
+promptinit
 
-# # # # # # # # # # # # # # #
-# Source Files
-#
-# Aliases & Functions
-source ~/dotfiles/.aliases
-source ~/dotfiles/.functions
-
-# Search repository when command not found
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
-
-# # # # # # # # # # # # # # #
-# Oh My Zsh
-#
-# Oh My Zsh Installation
-export ZSH=/usr/share/oh-my-zsh
-
-# Oh My Zsh Plugins
+## Oh My Zsh
+export ZSH=/usr/share/oh-my-zsh						# Installation Path & Plugins
 plugins=(dirhistory encode64 screen sudo urltools web-search ssh-agent)
-
-# Theme;  https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
-
-# SSH-agent (OMZ plugin)
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-
-# Oh My Zsh Configuration
-source /usr/share/oh-my-zsh/oh-my-zsh.sh
+ZSH_THEME="ys"										# Theme
+zstyle :omz:plugins:ssh-agent agent-forwarding on	# SSH-agent (plugin)
+source /usr/share/oh-my-zsh/oh-my-zsh.sh			# Configuration

@@ -76,3 +76,20 @@ blank () {
     *) xset dpms 7200 7200 7200;notify-send "Display" "Screen blank set to 2 hours.";;
     esac
 }   
+
+
+# When I want to fall asleep to a movie
+# Use with gnight
+gnight(){
+		blank		
+		xbacklight -set 10%
+		pulseaudio-ctl set 20
+		shutdown -h +40
+}
+
+
+# Get the weather forecast with some sweet output!
+# Use with weather <CITY_NAME>
+weather () {
+	curl -4 http://wttr.in/$1
+}

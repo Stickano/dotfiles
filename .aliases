@@ -29,3 +29,8 @@ alias kkthxbye='halt'
 alias such=git
 alias very=git
 alias wow='git status'
+
+# Mother of all aliases! Makes fileutils more verbose
+for c in cp rm chmod chown rename; do
+    alias $c="$c -v"
+done

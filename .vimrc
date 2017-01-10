@@ -73,8 +73,8 @@ set spelllang=en,da				" Spellcheck languages
 cmap w!! w !sudo tee % >/dev/null
 
 " Ctrl z, c, x & v (I'm a sucker for those ez mode bindings!)
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
+vmap <C-c> "+y<Esc>i
+vmap <C-x> "+d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>pi

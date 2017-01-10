@@ -3,6 +3,6 @@
 
 # To prevent path not being overriden by .zshenv 
 typeset -U path
-path=(~/bin /home/stick/.scripts /usr/local/bin $path[@])
+path=(~/bin /home/stick/dotfiles/scripts /usr/local/bin $path[@])
 
 
