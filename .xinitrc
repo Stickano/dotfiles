@@ -41,12 +41,14 @@ setxkbmap dk &
 # Set initial monitor backlight
 xbacklight -set 50% &
 # Set initial volume
-sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 20%" &
+sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 40%" &
 # Monitor blanking/ 10m
 xset s 600 &
 # Multimedia keys binding
 xbindkeys &
 # Screen locker
 xss-lock -- ~/dotfiles/.config/i3/lock.sh &
+# SSH-agent
+eval $(ssh-agent &)
 # RUN! You beautiful bastard!
 exec i3
