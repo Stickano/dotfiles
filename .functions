@@ -81,10 +81,11 @@ blank () {
 # When I want to fall asleep to a movie
 # Use with gnight
 gnight(){
-		blank		
+		xset dpms 2400 2400 2400
 		xbacklight -set 10%
-		pulseaudio-ctl set 20
+		pulseaudio-ctl set 40
 		shutdown -h +40
+		notify-send "Goodnight" "Sleep tight you beautiful bastard"
 }
 
 
