@@ -1,0 +1,74 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 538,
+       "width": 810,
+       "x": 0,
+       "y": 0
+    },
+    "name": "DMESG",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "XTerm$",
+        "instance": "tws1"
+
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 538,
+               "width": 810,
+               "x": 0,
+               "y": 0
+            },
+            "name": "dotfiles Git",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "XTerm",
+                "instance": "tws2"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 538,
+               "width": 810,
+               "x": 0,
+               "y": 0
+            },
+            "name": "ls",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "XTerm",
+                "instance": "tws3"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
