@@ -26,14 +26,14 @@ XTerm*cursorBlink: true
 *VT100*translations: #override Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
 
 ! Border for Window
-xterm*borderWidth: 1
-xterm*BorderColor: #f3f4f5
+XTerm*borderWidth: 1
+XTerm*BorderColor: #f3f4f5
 
 ! Padding
-xterm*internalBorder:5
+XTerm*internalBorder:5
 
 ! Font
-xterm*faceName: EnvyCodeR:size=14:antialias=true
+XTerm*faceName: EnvyCodeR:size=14:antialias=true
 ! XTerm*scaleHeight: 1.5
 Xft.antialias:  1
 Xft.autohint:   0
@@ -92,4 +92,3 @@ rofi.separator-style:                dash
 ! white
 *.color7:       #c7ccd1
 *.color15:      #f3f4f5
-
