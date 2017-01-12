@@ -1,16 +1,10 @@
-# Super-key as $mod
-set $mod Mod4
-
-# Load layouts 
-#exec --no-startup-id "~/.config/i3/layouts/load_layout_1.sh"
-#exec --no-startup-id "~/.config/i3/layouts/load_layout_2.sh"
-#exec --no-startup-id "~/.config/i3/layouts/load_layout_3.sh"
-#exec --no-startup-id "~/.config/i3/layouts/load_layout_4.sh"
-
+# # # # # # # # # # # # #
+# General Settings
+#
 # Font
 font pango:EnvyCodeR 12
 
-# Remove border from windows
+# Remove Borders
 new_window pixel 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -19,6 +13,80 @@ floating_modifier $mod
 # Back and forth in workspaces, hitting $mod+4 twice etc.
 workspace_auto_back_and_forth yes
 
+# Super-key as $mod
+set $mod Mod4
+
+# Don't autofocus windows 
+focus_on_window_activation none
+
+
+# # # # # # # # # # # # #
+# Workspace Settings
+#
+# Workspace names
+set $WS1 "1: www"
+set $WS2 "2: term"
+set $WS3 "3: devel"
+set $WS4 "4: media"
+set $WS5 "5: misc"
+set $WS6 "6: VI"
+set $WS7 "7: VII"
+set $WS8 "8: VIII"
+set $WS9 "9: IX"
+set $WS10 "10: X"
+
+# Assign applications to specific workspaces
+assign [class="Deadbeef"] $WS4
+assign [class="MPlayer"] $WS4
+assign [class="Pavucontrol"] $WS4
+assign [class="XTerm" instance="tws1"] $WS2
+assign [class="XTerm" instance="tws2"] $WS2
+assign [class="XTerm" instance="tws3"] $WS2
+assign [class="Subl3"] $WS3
+assign [class="KeePass2"] $WS5
+
+
+# # # # # # # # # # # # #
+# Container Settings
+#
+# Floating windows
+for_window [class="MPlayer"] floating enable
+for_window [window_role="Organizer"] floating enable	# Firefox bookmarks
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Auto focus
+no_focus [class="KeePass2"]
+no_focus [class="Deadbeef"]
+no_focus [class="Pavucontrol"]
+no_focus [class="Subl3"]
+no_focus [class="Zim"]
+
+
+# # # # # # # # # # # # #
+# Autostart
+#
+# Layouts
+exec --no-startup-id i3-msg "workspace $WS2; append_layout /home/stick/.config/i3/layouts/workspace-2.json"
+exec --no-startup-id i3-msg "workspace $WS4; append_layout /home/stick/.config/i3/layouts/workspace-4.json"
+exec --no-startup-id i3-msg "workspace $WS5; append_layout /home/stick/.config/i3/layouts/workspace-5.json"
+
+# Applications
+exec --no-startup-id "xterm -hold -name tws1 -e 'dmesg; zsh'"
+exec --no-startup-id "xterm -hold -name tws3 -e 'cd /home/stick/dotfiles; git status; cd /home/stick; zsh'"
+exec --no-startup-id "xterm -hold -name tws2 -e 'ls -l --color=auto --group-directories-first; zsh'"
+exec --no-startup-id i3-msg "workspace $WS1; exec firefox --no-remote"
+exec --no-startup-id i3-msg "workspace $WS3; exec firefox --no-remote -p \"local\" localhost/adminer"
+exec --no-startup-id "deadbeef"
+exec --no-startup-id "pavucontrol"
+exec --no-startup-id "subl3"
+exec --no-startup-id "keepass"
+exec --no-startup-id i3-msg "workspace $WS5; exec zim"
+
+
+# # # # # # # # # # # # #
+# Key Binds
+#
 # next/previous workspace
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
@@ -28,28 +96,25 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+m move scratchpad
 bindsym $mod+o scratchpad show
 
-# Drag a window along back and forth in workspaces with $mod+z
-bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
-
-# Firefox key-bind
-#bindsym Mod1+w [class="Firefox"] focus
-
-# Gedit key-bind
-#bindsym Mod1+e [class="Gedit"] focus
-
-# start a terminal
-bindsym $mod+Return exec xterm
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Caps-lock indicator in statusbar
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# Drag a window along back and forth in workspaces with $mod+z
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
+
+# Firefox 
+bindsym Mod1+w [class="Firefox"] focus
+
+# Terminal
+bindsym $mod+Return exec xterm
+
+# Dmenu 
+bindsym Mod1+d exec rofi -show drun -lines 5 -eh 2 -font "EnvyCodeR Display 16" -opacity 90 
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+ae focus down
-# bindsym $mod+l focus up
+bindsym $mod+l focus up
 bindsym $mod+k focus right
 
 # alternatively, you can use the cursor keys:
@@ -90,17 +155,14 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-# focus the child container
-#bindsym $mod+d focus child
+# reload the configuration file
+bindsym $mod+Shift+c reload
 
-# Workspace names
-set $WS1 "  www"
-set $WS2 " term"
-set $WS3 " devel"
-set $WS4 " media"
-set $WS5 " misc"
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Lock-screen with Alt+l
+bindsym $mod1+l exec ~/.config/i3/lock.sh
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -108,11 +170,11 @@ bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1
@@ -125,24 +187,6 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
-# Assign applications to specific workspaces
-assign [class="sublime_text"] $WS3
-assign [class="Deadbeef"] $WS4
-assign [class="MPlayer"] $WS4
-
-# Floating windows
-#for_window [class="MPlayer"] floating enable
-for_window [window_role="Organizer"] floating enable	# Firefox bookmarks
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# Lock-screen with ctrl+l
-bindsym $mod+l exec ~/.config/i3/lock.sh
 
 # Shutdown options
 set $Locker i3lock && sleep 1
@@ -184,6 +228,13 @@ mode "$mode_display" {
 }
 bindsym $mod+p mode "$mode_display"
 
+
+# # # # # # # # # # # # #
+# Status Bar
+#
+# Caps-lock indicator 
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
 # Color scheme
 set $bg-color 	         #1d1f21
 set $inactive-bg-color   #1d1f21
@@ -191,27 +242,24 @@ set $text-color          #f5f5f5
 set $inactive-text-color #d0d0d0
 set $urgent-bg-color	 #ac4142
 
-# Status bar colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $urgent-bg-color     #ac4142
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #ac4142
-client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #ac4142
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #ac4142
-
-# Dmenu 
-bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -font "EnvyCodeR Display 16" -opacity 90 
+client.focused          $bg-color           $bg-color          $urgent-bg-color		$urgent-bg-color
+client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color $urgent-bg-color
+client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color $urgent-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
 
 # Start i3bar 
-bar {
-        status_command i3blocks -c ~/.config/i3/i3status 
+bar { 
+    status_command i3blocks -c ~/.config/i3/i3status 
 	position top
 	mode hide
 	modifier $mod
+    strip_workspace_numbers yes 
 	colors {
 		background $bg-color
-	    	separator #757575
+	    separator #757575
 		#                  border             background         text
-		focused_workspace  $bg-color          #505050		 $text-color
+		focused_workspace  $bg-color          #505050			 $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
