@@ -5,7 +5,7 @@
 font pango:EnvyCodeR 12
 
 # Remove Borders
-new_window pixel 0
+new_window pixel 0 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -62,6 +62,9 @@ no_focus [class="Pavucontrol"]
 no_focus [class="Subl3"]
 no_focus [class="Zim"]
 
+# Force no border (...jees Zim? Really?!) 
+for_window [class="Zim"] border pixel 0
+
 
 # # # # # # # # # # # # #
 # Autostart
@@ -75,8 +78,8 @@ exec --no-startup-id i3-msg "workspace $WS5; append_layout /home/stick/.config/i
 exec --no-startup-id "xterm -hold -name tws1 -e 'dmesg; zsh'"
 exec --no-startup-id "xterm -hold -name tws3 -e 'cd /home/stick/dotfiles; git status; cd /home/stick; zsh'"
 exec --no-startup-id "xterm -hold -name tws2 -e 'ls -l --color=auto --group-directories-first; zsh'"
-exec --no-startup-id i3-msg "workspace $WS1; exec firefox --no-remote"
-exec --no-startup-id i3-msg "workspace $WS3; exec firefox --no-remote -p \"local\" localhost/adminer"
+exec --no-startup-id i3-msg "workspace $WS1; exec firefox -no-remote"
+exec --no-startup-id i3-msg "workspace $WS3; exec firefox -no-remote -p \"local\" localhost/adminer"
 exec --no-startup-id "deadbeef"
 exec --no-startup-id "pavucontrol"
 exec --no-startup-id "subl3"
