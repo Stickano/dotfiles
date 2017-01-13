@@ -46,6 +46,8 @@ sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 40%" &
 xset s 600 &
 # Multimedia keys binding
 xbindkeys &
+# Clipboard
+xclip &
 # Screen locker
 xss-lock -- ~/dotfiles/.config/i3/lock.sh &
 # SSH-agent
