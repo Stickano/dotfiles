@@ -1,3 +1,4 @@
 .zsh/.histfile
 .zsh/.zcompdump*
 .config/i3/icon.png
+scripts/ipset-update.sh
