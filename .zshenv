@@ -15,9 +15,11 @@ export XDG_DATA_HOME=/home/stick/.local/share
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIGS_DIRS=/etc/xdg
 
-# Infinality (a little bolder than default)
-export INFINALITY_FT="ultimate4"
-
 # Zsh dotfile directory
 export ZDOTDIR=/home/stick/dotfiles/.zsh
 
+# URxvt Xresources
+export XENVIRONMENT=/home/stick/dotfiles/.Xresources
+
+# Clutter and Games
+export SDL_VIDEO_X11_DGAMOUSE=0

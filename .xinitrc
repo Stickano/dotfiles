@@ -47,7 +47,7 @@ xset s 600 &
 # Multimedia keys binding
 xbindkeys &
 # Clipboard
-xclip &
+xclip -selection clipboard &
 # Screen locker
 xss-lock -- ~/dotfiles/.config/i3/lock.sh &
 # SSH-agent
