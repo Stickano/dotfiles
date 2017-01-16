@@ -48,6 +48,8 @@ xset s 600 &
 xbindkeys &
 # Clipboard
 xclip -selection clipboard &
+# Hide mouse on inactivity 
+unclutter &
 # Screen locker
 xss-lock -- ~/dotfiles/.config/i3/lock.sh &
 # SSH-agent
