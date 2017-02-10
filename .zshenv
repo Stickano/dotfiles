@@ -23,3 +23,4 @@ export XENVIRONMENT=/home/stick/dotfiles/.Xresources
 
 # Clutter and Games
 export SDL_VIDEO_X11_DGAMOUSE=0
+
