@@ -27,6 +27,7 @@ syntax on						" Syntax Highlighting
 filetype plugin indent on		" Allow for file-handling
 let mapleader=","				" Change <leader>
 set modelines=1					" Check for modeline
+colors delek					" Default Color Theme
 
 " Save Cursor Position
 augroup resCur
@@ -54,7 +55,7 @@ set cursorline					" Highlight cursorline
 set copyindent					" Copy previous autoindenting
 set smarttab					" Tab at beginning according to shiftwidth
 set scrolloff=4					" Keep 4 lines when scrolling
-set clipboard=unnamed			" Primary as default clipboard
+set clipboard=unnamedplus		" Default clipboard
 set lazyredraw					" Only redraw when needed
 set foldmethod=marker			" Fold on markers
 set foldlevel=0					" Fold by default
