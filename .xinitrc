@@ -42,8 +42,8 @@ setxkbmap dk &
 xbacklight -set 50% &
 # Set initial volume
 sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 40%" &
-# Monitor blanking/ 10m
-xset s 600 &
+# Monitor blanking/ 11m
+xset s 660 &
 # Multimedia keys binding
 xbindkeys &
 # Clipboard
@@ -55,4 +55,5 @@ xss-lock -- ~/dotfiles/.config/i3/lock.sh &
 # SSH-agent
 eval $(ssh-agent &)
 # RUN! You beautiful bastard!
+exec urxvt -name scratchpad -e zsh &
 exec i3
