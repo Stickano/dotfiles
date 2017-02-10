@@ -21,3 +21,11 @@
 # Touchpad on/off
 "~/dotfiles/scripts/toggle_touchpad.sh"
 	XF86TouchpadToggle
+
+# Add clipboard to Buku
+"~/dotfiles/scripts/bukuadd.sh"
+    Alt + b
+
+# Open Buku/Rofi integration
+"buku_run"
+Control+Alt + b
