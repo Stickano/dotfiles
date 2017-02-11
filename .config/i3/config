@@ -7,14 +7,8 @@ font pango:EnvyCodeR 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Back and forth in workspaces, hitting $mod+4 twice etc.
-#workspace_auto_back_and_forth yes
-
 # Super-key as $mod
 set $mod Mod4
-
-# Don't autofocus windows 
-#focus_on_window_activation none
 
 
 # # # # # # # # # # # # #
@@ -58,6 +52,11 @@ for_window [class="MPlayer"] floating enable
 for_window [window_role="Organizer"] floating enable	# Firefox bookmarks
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [class="KeePass2"] floating enable
+
+# Floating window size
+floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1
 
 # Scratchpad Terminal
 for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
