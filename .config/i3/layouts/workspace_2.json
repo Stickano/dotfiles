@@ -1,0 +1,71 @@
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 528,
+       "width": 880,
+       "x": 0,
+       "y": 0
+    },
+    "name": "stick@dinnabo: ~",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^URxvt$",
+        "instance": "ws21"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 528,
+               "width": 880,
+               "x": 0,
+               "y": 0
+            },
+            "name": "stick@dinnabo: ~",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^URxvt$",
+                "instance": "ws22"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 528,
+               "width": 880,
+               "x": 0,
+               "y": 0
+            },
+            "name": "stick@dinnabo: ~",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^URxvt$",
+                "instance": "ws23"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

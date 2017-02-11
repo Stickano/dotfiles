@@ -1,21 +1,20 @@
-// vim:ts=4:sw=4:et
 {
     "border": "pixel",
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
        "height": 1080,
-       "width": 960,
-       "x": 960,
+       "width": 1920,
+       "x": 0,
        "y": 0
     },
-    "name": "DeaDBeeF-0.7.2",
+    "name": ",
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^Deadbeef$",
-        "instance": "^deadbeef$"
-        }
+        "class": "^Subl3$",
+        "instance": "^subl3$"
+       }
     ],
     "type": "con"
 }
@@ -25,17 +24,17 @@
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
-       "height": 1045,
-       "width": 640,
+       "height": 1080,
+       "width": 960,
        "x": 0,
        "y": 0
     },
-    "name": "Volume Control",
+    "name": "",
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^Pavucontrol$",
-        "instance": "^pavucontrol$"
+        "class": "^Firefox$",
+        "instance": "^Navigator$"
        }
     ],
     "type": "con"
