@@ -28,7 +28,7 @@ URxvt.letterSpace: -1
 URxvt.colorUL: #4682B4
 
 ! Font
-URxvt.font: xft:EnvyCodeR:size=14:antialias=false, xft:FontAwesome:pixelsize=14:antialias=false
+URxvt.font: xft:EnvyCodeR:size=14:antialias=false
 Xft.autohint:   0
 Xft.dpi:        96
 Xft.hinting:    1
