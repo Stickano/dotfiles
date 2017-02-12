@@ -51,7 +51,7 @@ xclip -selection clipboard &
 # Hide mouse on inactivity 
 unclutter &
 # Screen locker
-xss-lock -- ~/dotfiles/.config/i3/lock.sh &
+xss-lock -- i3lock -n -i ~/.wallpapers/lock/lake.jpg &
 # SSH-agent
 eval $(ssh-agent &)
 # RUN! You beautiful bastard!
