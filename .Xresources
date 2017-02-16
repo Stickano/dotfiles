@@ -1,34 +1,26 @@
-!
-! # General Settings
-!
 ! Cursor Theme
 Xcursor.theme: Vanilla-DMZ
 
-
-!
-! # URxvt General
-!
-! Modifier key
+! URxvt General
 URxvt.modifier: mod1
-
-! Disable the scrollbar
-URxvt.scrollBar: false
-
-! Background and Transparency
 URxvt.depth: 32
 URxvt.background: [85]#1c2023
-
-! Padding
+URxvt.scrollBar: false
 URxvt.internalBorder: 10
-
-! Reduce letter-spacing
 URxvt.letterSpace: -1
+UXTerm*bellIsUrgent: true
 
-! Color underlined text -URLs
 URxvt.colorUL: #4682B4
+URxvt*cutchars: `"()'*<>[]{|}
 
-! Font
-URxvt.font: xft:EnvyCodeR:size=14:antialias=false
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
+
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+URxvt.font: xft:EnvyCodeR:size=14:antialias=true
 Xft.autohint:   0
 Xft.dpi:        96
 Xft.hinting:    1
@@ -36,61 +28,19 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 
-! Scrollback
-! Dont scroll with output
-URxvt*scrollTtyOutput: false
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+! Extensions
+URxvt.perl-ext-common: default,resize-font,matcher,keyboard-select,selection-to-clipboard
 
-! Cursor
-! Blink cursor
-URxvt.cursorBlink: true
-! Underline cursor instead of box
-URxvt.cursorUnderline: true
-
-
-!
-! # URxvt Extensions
-!
-! Include 
-URxvt.perl-ext-common: default,tabbedex,resize-font,matcher,keyboard-select,selection-to-clipboard
-
-! tabbedex (package)
-! Hide tab bar when only 1 tab is present
-URxvt.tabbed.autohide: true
-! Binds for tabs
-URxvt.tabbed.no-tabbedex-keys: true
-URxvt.keysym.Control-t: perl:tabbedex:new_tab
-URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
-URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
-URxvt.keysym.Control-Shift-Left: perl:tabbedex:move_tab_left
-URxvt.keysym.Control-Shift-Right: perl:tabbedex:move_tab_right
-URxvt.keysym.Shift-Up: perl:tabbedex:rename_tab
-! Colors for tabs 
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 3
-URxvt.tabbed.tab-bg: 0
-
-! Clickable URLs
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: /usr/bin/firefox -new-tab
 URxvt.matcher.button: 1
 
-! URxvt-perls (package)
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 
-! Font Resize (package)
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 
-
-!
-! # Colors - colors everywhere!
-!
-! ROFI colors
+! Colors - colors everywhere!
 rofi.color-enabled:                  true
 rofi.color-normal:                   argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
 rofi.color-urgent:                   argb:00000000, #f99, argb:11FFFFFF, #f99,#333
@@ -98,7 +48,6 @@ rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#3
 rofi.color-window:                   argb:ee333333, #1aa,#1aa
 rofi.separator-style:                dash
 
-! Terminal color scheme 
 ! special
 *.foreground:   #c7ccd1
 *.background:   #1c2023
