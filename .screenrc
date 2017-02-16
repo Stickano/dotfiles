@@ -6,3 +6,9 @@ hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%
 
 # Scrollbar
 termcapinfo xterm* ti@:te@
+
+# Keeps irssi from hanging 
+defnonblock on
+
+# utf-8
+defutf8 on
