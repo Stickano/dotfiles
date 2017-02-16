@@ -15,9 +15,14 @@ export XDG_DATA_HOME=/home/stick/.local/share
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIGS_DIRS=/etc/xdg
 
-# UTF-8
-export LANG=en_US.UTF-8 
-export LC_CTYPE=en_US.UTF-8
+# Locale
+export LANG="en_US.utf-8"
+export LC_COLLATE=C
+export LC_MESSAGES="en_US.utf-8"
+export LC_MONETARY="da_DK.utf-8"
+export LC_NUMERIC="da_DK.utf-8"
+export LC_TIME="en_US.utf-8"
+export LC_ALL=
 
 # Zsh dotfile directory
 export ZDOTDIR=/home/stick/dotfiles/.zsh
