@@ -51,9 +51,9 @@ xclip -selection clipboard &
 # Hide mouse on inactivity 
 unclutter &
 # Screen locker
-xss-lock -- i3lock -n -i ~/.wallpapers/lock/lake.jpg &
+xss-lock -- i3lock -u -n -i ~/.wallpapers/lock/lock.png &
 # SSH-agent
 eval $(ssh-agent &)
 # RUN! You beautiful bastard!
-exec urxvt -name scratchpad -e zsh &
+urxvt -name scratchpad -e zsh &
 exec i3
