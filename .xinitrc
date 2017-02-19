@@ -30,6 +30,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Authentication Agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Wallpaper manager
 ~/dotfiles/scripts/background &
 # Composite Manager
@@ -39,7 +41,7 @@ dunst &
 # Keyboard layout
 setxkbmap dk &
 # Set initial monitor backlight
-xbacklight -set 50% &
+# xbacklight -set 50% &
 # Set initial volume
 sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 40%" &
 # Monitor blanking/ 11m
@@ -54,6 +56,8 @@ unclutter &
 xss-lock -- i3lock -u -n -i ~/.wallpapers/lock/lock.png &
 # SSH-agent
 eval $(ssh-agent &)
+# Set Environment Variables
+dbus-update-activation-environment --systemd --all
 # RUN! You beautiful bastard!
 urxvt -name scratchpad -e zsh &
 exec i3

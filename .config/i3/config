@@ -34,30 +34,36 @@ set $WS2 "2: Term"
 set $WS3 "3: Devel"
 set $WS4 "4: Media"
 set $WS5 "5: Misc"
-set $WS6 "6: VI"
+set $WS6 "6: IRC"
 set $WS7 "7: VII"
 set $WS8 "8: VIII"
 set $WS9 "9: Gaming"
 set $WS10 "10: Damage Control"
 
+
 # Assign applications to specific workspaces
-assign [class="MPlayer"] $WS4
 assign [class="Steam"] $WS9
+assign [instance="irc"] $WS6
+assign [class="Google-chrome"] $WS4
 
 
 # # # # # # # # # # # # #
 # Container Settings
 #
 # Floating windows
-for_window [class="MPlayer"] floating enable
-for_window [window_role="Organizer"] floating enable	# Firefox bookmarks
+for_window [class="MPlayer"] floating enable, resize set 1280 720
+for_window [window_role="Organizer"] floating enable, resize set 300 400
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="KeePass2"] floating enable
+for_window [class="Google-chrome"] floating enable 
+for_window [class="feh"] floating enable, resize set 1280 720
+for_window [class="Gvim"] floating enable, resize set 1280 720
+for_window [class="Steam"] layout stacking
 
 # Floating window size
-floating_minimum_size -1 x -1
-floating_maximum_size -1 x -1
+# floating_minimum_size -1 x -1
+# floating_maximum_size -1 x -1
 
 # Scratchpad Terminal
 for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
@@ -67,7 +73,7 @@ for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpa
 # Autostart
 #
 # Applications
-exec --no-startup-id i3-msg "workspace $WS1; exec firefox -no-remote"
+exec --no-startup-id i3-msg "workspace $WS1; exec firefox --no-remote"
 
 
 # # # # # # # # # # # # #
@@ -81,9 +87,8 @@ bindsym Control+Mod1+5 exec ~/dotfiles/.config/i3/layouts/load-ws5.sh
 bindsym Control+Mod1+0 exec ~/dotfiles/.config/i3/layouts/load-ws10.sh
 
 # next/previous workspace
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift+Tab focus left
-bindsym $mod+Tab workspace back_and_forth
+bindsym Mod1+Tab workspace back_and_forth
+bindsym $mod+Tab exec rofi -show window
 
 # scratchpad
 bindsym $mod+m move scratchpad
@@ -96,7 +101,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
 
 # Take screenshot
-bindsym Print scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Print exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Firefox 
 bindsym Mod1+w exec firefox
@@ -105,7 +110,10 @@ bindsym Mod1+w exec firefox
 bindsym $mod+Return exec urxvt
 
 # Dmenu 
-bindsym Mod1+d exec rofi -show drun -lines 5 -eh 2 -font "EnvyCodeR Display 16" -opacity 90 
+bindsym Mod1+d exec rofi -show drun -lines 8 -font "EnvyCodeR Display 16" -opacity 90 
+
+# Jump to urgent
+bindsym $mod+x [urgent=latest] focus
 
 # change focus
 bindsym $mod+j focus left
@@ -132,6 +140,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
+# Not working for reasons unknown.. todo
 bindsym $mod+h split h
 
 # split in vertical orientation
@@ -144,7 +153,6 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -159,7 +167,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock-screen with Alt+l
-#bindsym $mod1+l exec ~/.config/i3/lock.sh
+bindsym Mod1+l exec ~/.config/i3/lock.sh
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1

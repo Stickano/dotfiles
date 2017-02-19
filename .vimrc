@@ -20,14 +20,14 @@ set laststatus=2
 " {{{
 set whichwrap=b,s,<,>,[,]		" Move next/prev line  
 set history=500					" History
-set autoread					" Autoread when file is changed from outsite
-set wildmenu					" Wildmenu 
+set wildmenu
 set ffs=unix,dos,mac			" Set Unix as standard file type
 syntax on						" Syntax Highlighting
 filetype plugin indent on		" Allow for file-handling
 let mapleader=","				" Change <leader>
 set modelines=1					" Check for modeline
-colors delek					" Default Color Theme
+colors koehler					" Default Color Theme
+set background=dark				" Dark Background
 
 " Save Cursor Position
 augroup resCur
@@ -39,23 +39,25 @@ augroup END
 " Editor Behaviour
 "{{{
 set mouse=a						" Enable Mouse
+set autoread					" Autoread when file is changed from outsite
 set tabstop=4					" Replace tab with 4 spaces
 set softtabstop=4				" Backspace to behave like it's removing tab
 set autoindent					" Auto indent
 set smartindent					" Smart indent
 set backspace=indent,eol,start	" Backspace over everything 
-set lbr							" Line break each 500 character
-set tw=500
+set lbr							" Line break each 200 character
+set tw=200
 set wrap						" Word Wrap
 set formatoptions+=1			" Always wrap before 1-letter words
-set background=dark				" Dark Background
 set number						" Line number
+set showbreak=+++				" Prefix for wrapped lines
 set showmatch					" Show matching brackets
-set cursorline					" Highlight cursorline
-set copyindent					" Copy previous autoindenting
+" set cursorline					" Highlight cursorline
+" set copyindent					" Copy previous autoindenting
 set smarttab					" Tab at beginning according to shiftwidth
-set scrolloff=4					" Keep 4 lines when scrolling
+set scrolloff=10				" Keep 10 lines when scrolling
 set clipboard=unnamedplus		" Default clipboard
+set clipboard+=autoselect		" Visual selected text in clipboard
 set lazyredraw					" Only redraw when needed
 set foldmethod=marker			" Fold on markers
 set foldlevel=0					" Fold by default
@@ -66,6 +68,15 @@ set hlsearch					" Highlight search-results
 set wrapscan					" Continue search from top when hitting bottom
 set ignorecase					" Ignore case when searching
 set spelllang=en,da				" Spellcheck languages
+set ttimeoutlen=50				" Remove the key latency  
+" }}}
+
+" GUI settings
+" {{{
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 " }}}
 
 " Additional Settings
