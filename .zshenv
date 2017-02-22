@@ -1,9 +1,6 @@
 # Is always sourced.
 # Used for setting environment variables.
 
-# Don't override importent theme variable. 
-setopt NO_GLOBAL_RCS
-
 # Environment Variables
 #
 # USER
