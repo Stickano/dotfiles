@@ -21,8 +21,8 @@ for_window [class="^.*"] border pixel 0
 smart_gaps on
 
 # Default Values
-gaps inner 20
-gaps outer 5
+gaps inner 15
+gaps outer 0 
 
 
 # # # # # # # # # # # # #
@@ -110,7 +110,7 @@ bindsym Mod1+w exec firefox
 bindsym $mod+Return exec urxvt
 
 # Dmenu 
-bindsym Mod1+d exec rofi -show drun -lines 8 -font "EnvyCodeR Display 16" -opacity 90 
+bindsym Mod1+d exec rofi -location 7 -bw 0 -width 20 -xoffset 14 -yoffset -25 -show drun -lines 10 -line-margin 6 -eh 2 -separator-style solid -hide-scrollbar -font "EnvyCodeR Display 12" -opacity 75
 
 # Jump to urgent
 bindsym $mod+x [urgent=latest] focus
@@ -256,9 +256,11 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar 
 bar { 
     status_command i3blocks -c ~/.config/i3/i3status 
-	position top
-	mode hide
-	modifier $mod
+	position bottom
+	mode dock
+	hidden_state show
+	tray_padding 6
+	#modifier $mod
     strip_workspace_numbers yes 
 	colors {
 		background $bg-color

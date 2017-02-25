@@ -39,29 +39,30 @@ signal=11
 separator=false
 
 # Volume indicator
-[volume]
-label= 
+#[volume]
+#label= 
+
 #instance=Master
-instance=PCM
-interval=1
-signal=10
+#instance=PCM
+#interval=1
+#signal=10
 
 # CPU usage
-[cpu_usage]
-label= 
-interval=1
+#[cpu_usage]
+#label= 
+#interval=1
 
 # Temperature
-[temperature]
-color=#6a9fb5
-label= 
-interval=5
+#[temperature]
+#color=#6a9fb5
+#label= 
+#interval=5
 
 # Memory usage
-[memory]
-label= 
-color=#6a9fb5
-interval=30
+#[memory]
+#label= 
+#color=#6a9fb5
+#interval=30
 
 #[memory]
 #label=SWAP
@@ -69,31 +70,31 @@ interval=30
 #separator=false
 #interval=30
 
+# Network interface monitoring
+[wifi]
+instance=wlp2s0
+interval=10
+separator=false
+separator_block_width=8
+
+[iface]
+instance=wlp2s0
+interval=10
+color=#6a9fb5
+
 # Disk usage /
 [disk]
-label= 
 color=#6a9fb5
 instance=/
 interval=30
 separator=false
-separator_block_width=15
+separator_block_width=8
 
 # Disk usage ~/
 [disk]
 color=#6a9fb5
+label= 
 interval=30
-
-# Network interface monitoring
-[iface]
-instance=wlp2s0
-interval=10
-separator=false
-separator_block_width=15
-color=#6a9fb5
-
-[wifi]
-instance=wlp2s0
-interval=10
 
 #[bandwidth]
 #instance=eth0
@@ -120,12 +121,13 @@ color=#6a9fb5
 color=#aa759fS
 command=date '+%H:%M'
 interval=5
+separator_block_width=15
 
 # Generic media player support
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 #[mediaplayer]
-#instance=spotify
+#instance=NAME
 #interval=5
 #signal=10
 

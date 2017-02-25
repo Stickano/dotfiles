@@ -33,8 +33,8 @@ fi
 #------------------------------------------------------------------------
 
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-  echo down # full text
-  echo down # short text
+  echo DOWN # full text
+  echo DOWN # short text
   echo \#ac4142 # color
   exit
 fi
@@ -49,7 +49,9 @@ case $1 in
 esac
 
 # if no interface is found, use the first device with a global scope
-IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \$1 and exit")
+#IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \$1 and exit")
+
+IPADDR="  "$(iwgetid -r)
 
 case $BLOCK_BUTTON in
   3) echo -n "$IPADDR" | xclip -q -se c ;;
