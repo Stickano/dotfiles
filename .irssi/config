@@ -3,14 +3,6 @@ servers = (
   { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
   { address = "irc.esper.net"; chatnet = "EsperNet"; port = "6667"; },
   {
-    address = "chat.freenode.net";
-    chatnet = "Freenode";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-  },
-  {
     address = "irc.gamesurge.net";
     chatnet = "GameSurge";
     port = "6667";
@@ -62,6 +54,15 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+  },
+  {
+    address = "chat.freenode.net";
+    chatnet = "Freenode";
+    port = "6697";
+    use_tls = "yes";
+    tls_cert = "~/.irssi/irssi.pem";
+    tls_verify = "yes";
+    autoconnect = "yes";
   }
 );
 
@@ -150,7 +151,12 @@ channels = (
   { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#archlinux.dk"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#sloa"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#bash"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#bash"; chatnet = "Freenode"; autojoin = "yes"; },
+  {
+    name = "#archlinux-offtopic";
+    chatnet = "Freenode";
+    autojoin = "yes";
+  }
 );
 
 aliases = {
@@ -349,13 +355,11 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         time = { };
-        user = { };
-        window = { };
-        window_empty = { };
+        apm = { priority = "100"; };
+        "apm.pl" = { priority = "100"; };
         lag = { priority = "-1"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
-        apm = { };
       };
     };
 
@@ -402,6 +406,7 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    name = { visible = "inactive"; disabled = "yes"; };
   };
 };
 settings = {
@@ -415,7 +420,7 @@ settings = {
     hilight_nick_matches_everywhere = "yes";
     beep_msg_level = "MSGS HILIGHT DCCMSGS";
     show_nickmode_empty = "no";
-    theme = "xchat2.theme";
+    theme = "zng.theme";
   };
   "irc/core" = { alternate_nick = "Stickano"; };
   "perl/core/scripts" = {
@@ -441,7 +446,7 @@ windows = {
     name = "(status)";
     level = "ALL";
     sticky = "yes";
-    parent = "3";
+    parent = "7";
   };
   3 = {
     items = (
@@ -453,6 +458,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "7";
   };
   4 = {
     items = (
@@ -464,7 +470,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "7";
   };
   5 = {
     items = (
@@ -476,7 +482,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "7";
   };
   6 = {
     items = (
@@ -488,22 +494,21 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "7";
   };
   7 = {
     items = (
       {
-        type = "QUERY";
+        type = "CHANNEL";
         chat_type = "IRC";
-        name = "nickserv";
+        name = "#archlinux-offtopic";
         tag = "Freenode";
       }
     );
     sticky = "yes";
-    parent = "3";
   };
 };
 mainwindows = {
-  3 = { first_line = "15"; lines = "33"; };
+  7 = { first_line = "15"; lines = "33"; };
   1 = { first_line = "1"; lines = "14"; };
 };
