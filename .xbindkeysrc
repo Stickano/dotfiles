@@ -28,4 +28,11 @@
 
 # Open Buku/Rofi integration
 "buku_run"
-Control+Alt + b
+    Control+Alt + b
+
+# Backlight up/down
+ "xbacklight +10"
+    Alt + F6
+
+ "xbacklight -10"
+    Alt + F5
