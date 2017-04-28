@@ -40,20 +40,20 @@ augroup END
 "{{{
 set mouse=a						" Enable Mouse
 set autoread					" Autoread when file is changed from outsite
-set tabstop=4					" Replace tab with 4 spaces
+set expandtab					" Replace tab with 4 spaces
+set tabstop=4					
+set shiftwidth=4
 set softtabstop=4				" Backspace to behave like it's removing tab
 set autoindent					" Auto indent
 set smartindent					" Smart indent
 set backspace=indent,eol,start	" Backspace over everything 
-set lbr							" Line break each 200 character
-set tw=200
+"set lbr							" Line break each 200 character
+"set tw=200
 set wrap						" Word Wrap
 set formatoptions+=1			" Always wrap before 1-letter words
 set number						" Line number
 set showbreak=+++				" Prefix for wrapped lines
 set showmatch					" Show matching brackets
-" set cursorline					" Highlight cursorline
-" set copyindent					" Copy previous autoindenting
 set smarttab					" Tab at beginning according to shiftwidth
 set scrolloff=10				" Keep 10 lines when scrolling
 set clipboard=unnamedplus		" Default clipboard
@@ -69,14 +69,16 @@ set wrapscan					" Continue search from top when hitting bottom
 set ignorecase					" Ignore case when searching
 set spelllang=en,da				" Spellcheck languages
 set ttimeoutlen=50				" Remove the key latency  
+set noswapfile
 " }}}
 
 " GUI settings
 " {{{
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+set guioptions-=m				" remove menu bar
+set guioptions-=T				" remove toolbar
+set guioptions-=r				" remove right-hand scroll bar
+set guioptions-=L				" remove left-hand scroll bar
+set guifont=EnvyCodeR:14
 " }}}
 
 " Additional Settings
@@ -84,12 +86,14 @@ set guioptions-=L  "remove left-hand scroll bar
 " Easy way to sudo-save
 cmap w!! w !sudo tee % >/dev/null
 
-" Ctrl z, c, x & v (I'm a sucker for those ez mode bindings!)
-vmap <C-c> "+y<Esc>i
-vmap <C-x> "+d<Esc>i
-map <C-v> pi
+" General Mapping
+vmap <C-c> "+y
+vmap <C-x> "+d
+vmap <C-v> p
+map <C-v> p
 imap <C-v> <Esc>pi
-imap <C-z> <Esc>pi
+imap <C-u> <Esc>:undo<CR>i
+imap <C-y> <Esc>:redo<CR>i
 
 " Clear Search Highlights
 nnoremap <leader><space> :nohlsearch<CR>

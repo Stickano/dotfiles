@@ -156,7 +156,8 @@ channels = (
     name = "#archlinux-offtopic";
     chatnet = "Freenode";
     autojoin = "yes";
-  }
+  },
+  { name = "##linux"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -446,7 +447,7 @@ windows = {
     name = "(status)";
     level = "ALL";
     sticky = "yes";
-    parent = "7";
+    parent = "8";
   };
   3 = {
     items = (
@@ -458,7 +459,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "7";
+    parent = "8";
   };
   4 = {
     items = (
@@ -470,7 +471,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "7";
+    parent = "8";
   };
   5 = {
     items = (
@@ -482,7 +483,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "7";
+    parent = "8";
   };
   6 = {
     items = (
@@ -494,7 +495,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "7";
+    parent = "8";
   };
   7 = {
     items = (
@@ -506,9 +507,21 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "8";
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##linux";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
   };
 };
 mainwindows = {
-  7 = { first_line = "15"; lines = "33"; };
-  1 = { first_line = "1"; lines = "14"; };
+  8 = { first_line = "14"; lines = "33"; };
+  1 = { first_line = "1"; lines = "13"; };
 };

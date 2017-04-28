@@ -32,7 +32,7 @@ focus-exclude = [
 	 "_NET_WM_NAME@:s = 'rofi'" 
 ];
 opacity-rule = [
-    "80:class_g = 'i3bar' && window_type = 'dock'"
+   #"80:class_g = 'i3bar' && window_type = 'dock'"
 ];
 
 # Fading
@@ -61,6 +61,6 @@ fade-exclude = [ ];
 wintypes:
 {
   tooltip = { fade = true; shadow = false; opacity = 0.85; focus = true; };
-  dock = { opacity = 0.2; shadow = false; };
+  # dock = { opacity = 0.2; shadow = false; };
 };
 
