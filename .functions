@@ -81,9 +81,9 @@ blank () {
 # When I want to fall asleep to a movie
 # Use with gnight
 gnight(){
+        xset s off
 		xset dpms 2400 2400 2400
 		xbacklight -set 10%
-		pulseaudio-ctl set 40
 		shutdown -h +40
 		notify-send "Goodnight" "Sleep tight you beautiful bastard"
 }
@@ -93,4 +93,17 @@ gnight(){
 # Use with weather <CITY_NAME>
 weather () {
 	curl -4 http://wttr.in/$1
+}
+
+# Import a PHP snippet into a function file
+# https://github.com/Stickano/WebHelpers
+snip () {
+    if grep -q "MARKER LINE" "$2"; then
+        sed '1d;$d' $1 > tempSnipFile
+        sed "/MARKER LINE/r tempSnipFile" $2 > newSnipFile
+        rm tempSnipFile
+        mv -f newSnipFile $2
+    else
+        echo "Second parameter is missing the MARKER line"
+    fi
 }
