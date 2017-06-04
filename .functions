@@ -98,12 +98,15 @@ weather () {
 # Import a PHP snippet into a function file
 # https://github.com/Stickano/WebHelpers
 snip () {
-    if grep -q "MARKER LINE" "$2"; then
-        sed '1d;$d' $1 > tempSnipFile
-        sed "/MARKER LINE/r tempSnipFile" $2 > newSnipFile
-        rm tempSnipFile
-        mv -f newSnipFile $2
+    if grep -q "MARKER LINE" "${@: -1}"; then
+        for i in "$@"; do
+            if [ "$i" != "${@: -1}" ]; then
+                echo 'Importing ' "$i"
+                sed '1d;$d' -- "$1" | sed -i '/MARKER LINE/ r /dev/stdin' -- "${@: -1}"    
+            fi
+        done
+        echo 'Done importing snippets to' "${@: -1}"
     else
-        echo "Second parameter is missing the MARKER line"
+        echo "Last parameter is missing the MARKER line"
     fi
 }
