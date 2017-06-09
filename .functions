@@ -100,11 +100,12 @@ weather () {
 # https://github.com/Stickano/WebHelpers
 snip () {
     if grep -q "MARKER LINE" "${@: -1}"; then
-        for i in "$@"; do
-            if [ "$i" != "${@: -1}" ]; then
-                echo 'Importing ' "$i"
-                sed '1d;$d' -- "$1" | sed -i '/MARKER LINE/ r /dev/stdin' -- "${@: -1}"    
+        for arg do
+             if [ "$arg" != "${@: -1}" ]; then
+                echo 'Importing ' "$arg"
+                sed '1d;$d' -- "$arg" | sed -i '/MARKER LINE/ r /dev/stdin' -- "${@: -1}"    
             fi
+
         done
         echo 'Done importing snippets to' "${@: -1}"
     else
