@@ -95,6 +95,7 @@ weather () {
 	curl -4 http://wttr.in/$1
 }
 
+
 # Import a PHP snippet into a function file
 # https://github.com/Stickano/WebHelpers
 snip () {
@@ -109,4 +110,51 @@ snip () {
     else
         echo "Last parameter is missing the MARKER line"
     fi
+}
+
+
+# Stopwatch timer
+# https://gist.github.com/thonixx/6578273
+timer() {
+	sec=1
+	maxdots=10
+	startdot=1
+	startdate=$(date +%s)
+	
+	echo "Stopwatch started: $(date -d @$startdate)"
+	while [ true ] 
+	do
+		let "sec = $(date +%s) - $startdate + 1"
+
+		if [ "$sec" -lt 60 ]
+			then time="$sec"
+		else min=$(expr $sec / 60)
+			relSec=$(expr $sec - $min \* 60)
+			time="$min"'m'" $relSec"
+		fi
+		
+		dotloop=0
+		dotPrint=""
+		while [ "$dotloop" -lt "$startdot" ]
+		do
+			dotPrint="$dotPrint."
+			let "dotloop = dotloop + 1"
+		done
+		
+		actualChars=$(echo -n "$dotPrint" | wc -c)
+		spacesToPrint=$(expr $maxdots - $actualChars)
+		spacesAdded=0
+		spaces=""
+		while [ "$spacesAdded" -lt "$spacesToPrint" ]
+		do
+			spaces="$spaces "
+			let "spacesAdded = $spacesAdded + 1"
+		done
+		
+		dotPrint="$dotPrint$spaces"
+		echo -ne "\e[0K\r   Time: $time"'s'" $dotPrint "
+		sleep 1 || echo "hi"
+		
+		startdot=$(if [ "$startdot" -lt "$maxdots" ]; then expr $startdot + 1; else echo "1"; fi)
+	done
 }
