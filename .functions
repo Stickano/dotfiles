@@ -102,8 +102,12 @@ snip () {
     if grep -q "MARKER LINE" "${@: -1}"; then
         for arg do
              if [ "$arg" != "${@: -1}" ]; then
-                echo 'Importing ' "$arg"
-                sed '1d;$d' -- "$arg" | sed -i '/MARKER LINE/ r /dev/stdin' -- "${@: -1}"    
+                if grep -q "SNIP" "$arg"; then
+                    echo 'Importing ' "$arg"
+                    sed '1d;$d' -- "$arg" | sed -i '/MARKER LINE/ r /dev/stdin' -- "${@: -1}"    
+                else
+                    echo "$arg" 'is not a snip-able file'
+                fi
             fi
 
         done
