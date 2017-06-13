@@ -10,6 +10,7 @@ ttyctl -f							# Reset terminal when necessary
 HIST_STAMPS="dd.mm.yyyy"			# TimeDate output
 export SSH_KEY_PATH="~/.ssh/rsa_id"	# Export SSH path
 REPORTTIME=3						# Report elapsed time > 3sec
+setopt NO_NOMATCH                   # For regex search
 
 ## Keybinds
 bindkey '^[[3^' kill-word			# Ctrl+delete /delete forwards
