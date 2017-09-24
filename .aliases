@@ -2,6 +2,7 @@
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -ll --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias sudo='sudo '                      # For sudo use in aliases
 alias grep='grep --color=tty -d skip'	# Color my grep!
 alias cp="cp -i"                        # confirm before overwriting something
 alias free='free -m'                    # show sizes in MB
@@ -13,9 +14,10 @@ alias wget="wget -c"					# Did the download break? No worries
 alias pdf=mupdf							# PDF and IRC client
 alias irc="urxvt -hold -name irc -e zsh -c 'tmux new-session irssi'" 
 
-# AUR
-alias cownew="~/dotfiles/scripts/cower_upd_view.sh"
-alias cowup="~/dotfiles/scripts/cower_upd_install.sh"
+# Package Management (update)
+alias cownew="~/dotfiles/scripts/cownew.sh"
+alias cowup="~/dotfiles/scripts/cowup.sh"
+alias update="/home/stick/dotfiles/scripts/update.sh"
 
 # List of keks 
 alias wtf='dmesg'
