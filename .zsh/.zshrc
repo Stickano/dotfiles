@@ -62,7 +62,7 @@ promptinit
 
 ## Oh My Zsh
 export ZSH=/usr/share/oh-my-zsh						# Installation Path & Plugins
-plugins=(dirhistory encode64 screen sudo urltools web-search)
+plugins=(dirhistory encode64 screen sudo urltools web-search ssh-agent)
 ZSH_THEME="ys"										# Theme
 #zstyle :omz:plugins:ssh-agent agent-forwarding on	# SSH-agent (plugin)
 source /usr/share/oh-my-zsh/oh-my-zsh.sh			# Configuration
