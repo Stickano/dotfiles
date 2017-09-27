@@ -78,7 +78,7 @@ set guioptions-=m				" remove menu bar
 set guioptions-=T				" remove toolbar
 set guioptions-=r				" remove right-hand scroll bar
 set guioptions-=L				" remove left-hand scroll bar
-set guifont=EnvyCodeR:14
+"set guifont=EnvyCodeR:14
 " }}}
 
 " Additional Settings
