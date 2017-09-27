@@ -1,0 +1,102 @@
+
+#################################################################################
+# Conky System BG Variation							#
+# by +WillemO, http://wim66.deviantart.com/art/System-Monitor-Conky-463366401	#
+# 29-6-14									#
+#								 		#
+# Use with Conky-Manager							#
+# http://www.teejeetech.in/p/conky-manager.html					#
+#										#
+#################################################################################
+
+background yes
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+update_interval 1
+cpu_avg_samples 1
+
+alignment bottom_right
+gap_x 50
+gap_y 50
+minimum_size 1270 290
+maximum_width 1270
+
+own_window yes
+own_window_type desktop	# other options are: override/dock/desktop/panel
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent no
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 120
+
+border_inner_margin 0
+border_outer_margin 0
+
+draw_shades no
+default_shade_color 000000
+draw_outline no
+default_outline_color 000000
+draw_borders no
+draw_graph_borders no
+default_graph_size 26 80
+show_graph_scale no
+show_graph_range no
+
+override_utf8_locale yes
+use_xft yes
+xftfont Ubuntu:size=11
+xftalpha 1
+uppercase no
+
+default_color 81CAE0
+color1 FFFFFF
+color2 ffffff
+color3 81CAE0
+
+color4 FFE7BA
+color5 81CAE0
+
+TEXT
+#${image ./BG.png -s 870x290}
+#${goto 40}${voffset 25}${color1}${pre_exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:upper:]"}
+${color1}${goto 38}$sysname $kernel${alignr 40}Uptime: $uptime
+
+#
+# cpu network graphs
+${voffset 5}${goto 40}${color1}Core1: ${color2}${cpu cpu1}%${color2} ${exec sensors|grep 'Core 0'|awk '{print $3}'} ${goto 245}${color1}Core2: ${color2}${cpu cpu2}%${color2} ${exec sensors|grep 'Core 1'|awk '{print $3}'}\
+${goto 850}${color1}WLAN${alignr 40}SSID: ${wireless_essid wlp2s0}
+#
+${goto 40}${voffset 0}${cpugraph cpu1 40,180 DD6B14 FEC500}${goto 245}${cpugraph cpu2 40,180 DD6B14 FEC500}\
+${goto 450}${diskiograph 40,380 DD6B14 FEC500}\
+${goto 850}${upspeedgraph wlp2s0 40,180 FEC500 DD6B14 100 -l}${alignr 40}${downspeedgraph wlp2s0 40,180 DD6B14 FEC500 100 -l}
+#
+#
+# top processes/memory/signal/IP
+${voffset -10}
+${goto 40}${color1}PROCESSES ${goto 175}$running_processes ($processes) ${goto 245}MEMORY${goto 320}${color3}${membar 8,105}\
+${voffset 0}${goto 850}${color1}Upspeed: $color2${upspeed wlp2s0}${alignr 40}${color1}Downspeed: $color2${downspeed wlp2s0}
+#
+${goto 40}${color2}${voffset 0}${top name 1}${goto 170}${top cpu 1}%${goto 245}${top_mem name 1}${goto 375}${top mem 1}%\
+${goto 850}${color1}Total up: ${color2}${totalup wlp2s0}${alignr 40}${color1}Total down :$color2${totaldown wlp2s0}
+#
+${goto 40}${color2}${top name 2}${goto 170}${top cpu 2}%${goto 245}${top_mem name 2}${goto 375}${top mem 2}%\
+#${goto 860}${color1}Signal:  ${color3}${wireless_link_bar 8,80 wlp2s0}${goto 985}${color1}${wireless_link_qual_perc wlp2s0}% ${alignr 40}${color1}IP: ${addr wlp2s0}
+${goto 450}${color1}${fs_used /} / ${fs_size /} (${fs_used_perc /}%)${goto 786}FILE
+${goto 40}${color2}${top name 3}${goto 170}${top cpu 3}%${goto 245}${top_mem name 3}${goto 375}${top mem 3}%\
+${goto 450}${color3}${fs_bar 8,380 /}\
+${goto 850}${color1}Signal:  ${goto 995}${color1}${wireless_link_qual_perc wlp2s0}% ${alignr 40}${color1}IP: ${addr wlp2s0}
+#
+${goto 40}${color2}${top name 4}${goto 170}${top cpu 4}%${goto 245}${top_mem name 4}${goto 375}${top mem 4}%\
+${goto 450}${color1}${fs_used /home/stickano} / ${fs_size /home/stickano} (${fs_used_perc /home/stickano}%)\
+${goto 780}HOME${goto 850}${color3}${wireless_link_bar 8,180 wlp2s0}${color}
+#
+${goto 40}${color2}${top name 5}${goto 170}${top cpu 5}%${goto 245}${top_mem name 5}${goto 375}${top mem 5}%\
+${goto 450}${color3}${fs_bar 8,380 /home/stickano/}
+#
+${goto 40}${color2}${top name 6}${goto 170}${top cpu 6}%${goto 245}${top_mem name 6}${goto 375}${top mem 6}%\
+${goto 450}${color1}${color1}$swap / $swapmax ($swapperc%) ${goto 782}SWAP
+#
+${goto 40}${color2}${top name 7}${goto 170}${top cpu 7}%${goto 245}${top_mem name 7}${goto 375}${top mem 7}%\
+${goto 450}${color3}${swapbar 8,380}

@@ -1,0 +1,11 @@
+$include /etc/inputrc
+
+# History search w. arrow keys
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# One <tab> completion
+set show-all-if-ambiguous on
+
+# Disable ^C echo when ctrl+c
+set echo-control-characters off
