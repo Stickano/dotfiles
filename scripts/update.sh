@@ -2,8 +2,8 @@
 
 yes | pacman -Syyu
 
-printf "%s\n" "Cleaning Orphans"
-yes | pacman -Rns \(pacman -Qtdq \)
+#printf "%s\n" "Cleaning Orphans"
+#yes | pacman -Rns (pacman -Qtdq)
 
 printf "%s\n" "Cleaning Package Cache"
 yes | paccache -rk 2

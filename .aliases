@@ -3,6 +3,7 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -ll --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias sudo='sudo '                      # For sudo use in aliases
+alias rm="rm -i"
 alias grep='grep --color=tty -d skip'	# Color my grep!
 alias cp="cp -i"                        # confirm before overwriting something
 alias free='free -m'                    # show sizes in MB
