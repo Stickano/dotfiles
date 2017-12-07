@@ -67,3 +67,6 @@ ZSH_THEME="ys"										# Theme
 #zstyle :omz:plugins:ssh-agent agent-forwarding on	# SSH-agent (plugin)
 source /usr/share/oh-my-zsh/oh-my-zsh.sh			# Configuration
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

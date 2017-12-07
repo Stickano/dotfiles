@@ -14,6 +14,8 @@ alias df="df -Tha --total"				# Human readable and total amount
 alias wget="wget -c"					# Did the download break? No worries 
 alias pdf=mupdf							# PDF and IRC client
 alias irc="urxvt -hold -name irc -e zsh -c 'tmux new-session irssi'" 
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+alias proxychains="proxychains "
 
 # Package Management (update)
 alias cownew="~/dotfiles/scripts/cownew.sh"

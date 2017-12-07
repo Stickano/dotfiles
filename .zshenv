@@ -33,3 +33,6 @@ export SDL_VIDEO_X11_DGAMOUSE=0
 # Video Hardware Acceleration
 export VDPAU_DRIVER=nvidia
 
+# Ruby gem
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
