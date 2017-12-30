@@ -1,0 +1,14 @@
+{
+	"color_scheme": "Packages/User/SublimeLinter/base16-ocean.dark (SL).tmTheme",
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"CSS",
+		"Markdown",
+		"Vintage"
+	],
+	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"rulers": [80],
+	"word_wrap": true
+}
