@@ -2,7 +2,7 @@
 # General Settings
 #
 # Font
-font pango:EnvyCodeR 12
+font pango:Monaco 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -180,6 +180,19 @@ bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
+#set $feh exec --no-startup-id feh --bg-scale
+#bindsym $mod+1 workspace $WS1 ; $feh ~/wp/1.jpg
+#bindsym $mod+2 workspace $WS2 ; $feh ~/wp/2.jpg
+#bindsym $mod+3 workspace $WS3 ; $feh ~/Pictures/screenshots/2018-02-25-23:36:51-screenshot.png
+#bindsym $mod+4 workspace $WS4 ; $feh ~/wp/4.jpg
+#bindsym $mod+5 workspace $WS5 ; $feh ~/wp/5.jpg
+#bindsym $mod+6 workspace $WS6 ; $feh ~/wp/6.jpg
+#bindsym $mod+7 workspace $WS7 ; $feh ~/wp/7.jpg
+#bindsym $mod+8 workspace $WS8 ; $feh ~/wp/8.jpg
+#bindsym $mod+9 workspace $WS9 ; $feh ~/wp/9.jpg
+#bindsym $mod+0 workspace $WS10 ; $feh ~/wp/10.jpg
+
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1

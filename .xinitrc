@@ -35,9 +35,11 @@ fi
 xss-lock -- i3lock -u -n -i ~/.wallpapers/lock/lock.png &
 
 # Desktop Goodies
-feh --bg-scale ~/.wallpapers/vimbg.png
+feh --bg-scale ~/.wallpapers/vimbg.png &
 compton -b --config ~/dotfiles/.compton &
-xclip -r -selection "clipboard" &
+# xclip -r -selection "clipboard" &
+autocutsel & 
+xfce4-clipman &
 
 # Notifications
 notify-listener &

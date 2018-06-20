@@ -19,15 +19,15 @@ set laststatus=2
 " General Setting
 " {{{
 set whichwrap=b,s,<,>,[,]		" Move next/prev line  
-set history=500					" History
+set history=500				" History
 set wildmenu
 set ffs=unix,dos,mac			" Set Unix as standard file type
-syntax on						" Syntax Highlighting
+syntax on				" Syntax Highlighting
 filetype plugin indent on		" Allow for file-handling
-let mapleader=","				" Change <leader>
-set modelines=1					" Check for modeline
-colors koehler					" Default Color Theme
-set background=dark				" Dark Background
+let mapleader=","			" Change <leader>
+set modelines=1				" Check for modeline
+colors janah				" Default Color Theme
+set background=dark			" Dark Background
 
 " Save Cursor Position
 augroup resCur
