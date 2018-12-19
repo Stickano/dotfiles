@@ -17,7 +17,7 @@ alias ps="ps -e -lfy"                   # Detailed process overview
 alias irc="urxvt -hold -name irc -e zsh -c 'tmux new-session irssi'" 
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias proxychains="proxychains "
-
+alias :q=exit
 # Java project from Pardubice University.
 alias ssch='cd ~/IdeaProjects/StudentScheme/out/production/StudentScheme ; java -cp "opencsv-4.1.jar:commons-lang3-3.7.jar:." com.company.Main '
 
