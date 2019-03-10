@@ -2,22 +2,23 @@
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -ll --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias sudo='sudo '                      # For sudo use in aliases
+alias sudo='sudo '                      
 alias rm="rm -i"
-alias grep='grep --color=tty -d skip'	# Color my grep!
-alias cp="cp -i"                        # confirm before overwriting something
-alias free='free -m'                    # show sizes in MB
-alias top='htop'						# Good old top
-alias cd..="cd .."						# Forgot the space? Ah well
-alias mkdir="mkdir -pv"					# Create parent folders too
-alias df="df -Tha --total"				# Human readable and total amount
-alias wget="wget -c"					# Did the download break? No worries 
-alias pdf=mupdf							# PDF and IRC client
-alias ps="ps -e -lfy"                   # Detailed process overview
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"                    
+alias free='free -m'               
+alias top='htop'		
+alias cd..="cd .."	
+alias mkdir="mkdir -pv"
+alias df="df -Tha --total"
+alias wget="wget -c"	
+alias pdf=mupdf	
+alias ps="ps -e -lfy"
 alias irc="urxvt -hold -name irc -e zsh -c 'tmux new-session irssi'" 
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias proxychains="proxychains "
 alias :q=exit
+
 # Java project from Pardubice University.
 alias ssch='cd ~/IdeaProjects/StudentScheme/out/production/StudentScheme ; java -cp "opencsv-4.1.jar:commons-lang3-3.7.jar:." com.company.Main '
 
@@ -44,6 +45,6 @@ alias very=git
 alias wow='git status'
 
 # Mother of all aliases! Makes fileutils more verbose
-for c in cp rm chmod chown rename; do
+for c in cp rm mv chmod chown rename; do
     alias $c="$c -v"
 done
