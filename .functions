@@ -84,7 +84,7 @@ blank () {
 gnight(){
         xset s off
 		xset dpms 2400 2400 2400
-		xbacklight -set 10%
+		#xbacklight -set 10%
 		shutdown -h +40
 		notify-send "Goodnight" "Sleep tight you beautiful bastard"
 }
@@ -163,4 +163,11 @@ timer() {
 		
 		startdot=$(if [ "$startdot" -lt "$maxdots" ]; then expr $startdot + 1; else echo "1"; fi)
 	done
+}
+
+# URL shortener
+# Use: gurl https://website.com
+gurl() {
+    curl -i https://git.io -F "url=$1" \
+    -F "code=$2"
 }
